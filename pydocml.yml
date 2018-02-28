@@ -1,0 +1,10 @@
+site_name: 'Keystone Federated Backend Interface'
+
+generate:
+  - README.md:
+      - requires.AWSRequires+
+    - provides:
+      - provides.KeystoneFederatedBackendProvides+
+
+pages:
+  - README: README.md

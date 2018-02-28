@@ -1,0 +1,3 @@
+name: keystone-federated-backend
+summary: Interface for configuring Keystone Federated Backend
+maintainer: OpenStack Charmers <openstack-charmers@lists.ubuntu.com>
