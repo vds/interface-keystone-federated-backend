@@ -23,11 +23,10 @@ from charms.reactive import (
 
 class KeystoneFederatedBackendProvides(Endpoint):
 
-    scope = scopes.GLOBAL
-
-    @when('{provides:keystone-federated-backend}-relation-joined')
+    @when('endpoint.{endpoint_name}.joined')
     def set_relation_info(self):
-        self.set_remote(**config())
+        for relation in self.relations:
+            relation.to_publish.update(**config())
 
     def trigger_restart(self):
         """
@@ -37,3 +36,5 @@ class KeystoneFederatedBackendProvides(Endpoint):
             'restart-nonce': str(uuid.uuid4())
         }
         self.set_remote(**relation_info)
+        for relation in self.relations:
+            relation.to_publish.update(**config())
